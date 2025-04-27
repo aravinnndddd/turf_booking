@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X,ChevronDown } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 const Nav: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
