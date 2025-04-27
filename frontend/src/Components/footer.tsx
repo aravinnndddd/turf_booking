@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center mb-4">
               <Soccer className="w-8 h-8 text-green-400" />
-              <span className="ml-2 font-bold text-xl text-white">TurfBook</span>
+              <span className="ml-2 font-bold text-xl text-white">SportSport</span>
             </div>
             <p className="mb-4 text-gray-400">
               Premium turf field booking platform. Find and reserve the best sports fields in your area.
@@ -126,7 +126,7 @@ const Footer: React.FC = () => {
       <div className="border-t border-gray-800 py-6">
         <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-500 text-sm mb-4 md:mb-0">
-            © 2025 TurfBook. All rights reserved.
+            © 2025 SportsSpot. All rights reserved.
           </div>
           <div className="flex space-x-6">
             <a href="#" className="text-gray-500 hover:text-gray-400 text-sm">
