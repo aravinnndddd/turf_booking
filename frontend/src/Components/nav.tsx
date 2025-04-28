@@ -118,7 +118,7 @@ const Nav: React.FC = () => {
               </Link>
               <Link
                 to="/signup"
-                className="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition-colors duration-200"
+                className="block w-full text-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-colors duration-200"
               >
                 Sign Up
               </Link>
