@@ -21,7 +21,7 @@ const Turf: React.FC = () => {
       image: f1,
       rating: 4.8,
       capacity: "5v5, 7v7, 11v11",
-      price: "$75/hr",
+      price: "₹750/hr",
       tags: ["Lights", "Locker Rooms", "Parking"]
     },
     {
@@ -31,7 +31,7 @@ const Turf: React.FC = () => {
       image: c1,
       rating: 4.9,
       capacity: "International Standard",
-      price: "$150/hr",
+      price: "₹150/hr",
       tags: ["Floodlights", "Practice Nets", "Electronic Scoreboard"]
     },
     {
@@ -41,7 +41,7 @@ const Turf: React.FC = () => {
       image: b1,
       rating: 4.7,
       capacity: "6 Professional Courts",
-      price: "$30/hr",
+      price: "₹300/hr",
       tags: ["Air Conditioned", "Pro Shop", "Training Programs"]
     },
     {
@@ -51,7 +51,7 @@ const Turf: React.FC = () => {
       image: c2,
       rating: 4.8,
       capacity: "County Standard",
-      price: "$120/hr",
+      price: "₹120/hr",
       tags: ["Practice Nets", "Pavilion", "Club House"]
     },
     {
@@ -61,7 +61,7 @@ const Turf: React.FC = () => {
       image: f2,
       rating: 4.5,
       capacity: "7v7",
-      price: "$85/hr",
+      price: "₹850/hr",
       tags: ["Covered", "Parking", "Pro Grade"]
     },
     {
@@ -71,7 +71,7 @@ const Turf: React.FC = () => {
       image: b2,
       rating: 4.6,
       capacity: "8 Synthetic Courts",
-      price: "$25/hr",
+      price: "₹250/hr",
       tags: ["Wood Flooring", "Equipment Rental", "Coaching"]
     }
    ];
