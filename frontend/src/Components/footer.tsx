@@ -3,7 +3,7 @@ import {  Mail, Phone, Facebook, Twitter, Instagram, Youtube } from 'lucide-reac
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer id='footer' className="bg-gray-900 text-gray-300">
       {/* Main Footer */}
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

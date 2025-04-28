@@ -106,7 +106,7 @@ const Nav: React.FC = () => {
             <Link to="#" className="block py-2 px-4 text-gray-800 hover:bg-blue-50 hover:text-blue-600">
               About
             </Link>
-            <Link to="#" className="block py-2 px-4 text-gray-800 hover:bg-blue-50 hover:text-blue-600">
+            <Link to="#footer" className="block py-2 px-4 text-gray-800 hover:bg-blue-50 hover:text-blue-600">
               Contact
             </Link>
             <div className="mt-4 pt-4 border-t border-gray-200">
