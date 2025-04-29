@@ -1,6 +1,4 @@
 /frontend/node_modules
-
-
+/Backend/**/*.sqlite3
+/Backend/**/*.db
 .env
-/Backend/*.sqlite3
-/Backend/*.db
