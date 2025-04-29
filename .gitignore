@@ -1,5 +1,5 @@
 # Python
-venv/
+Backend/venv/
 __pycache__/
 *.pyc
 *.pyo
@@ -13,8 +13,6 @@ db.sqlite3
 # Node modules
 frontend/node_modules/
 
-
-
 # Editor folders
 .vscode/
 .idea/
@@ -22,6 +20,5 @@ frontend/node_modules/
 # OS files
 .DS_Store
 Thumbs.db
-
 
 **/migrations/
