@@ -1,22 +1,46 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { registerUser } from '..//api';
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     password: '',
     confirmPassword: '',
     acceptTerms: false
   });
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle signup logic here
-    console.log('Signup submitted:', formData);
-    navigate('/');
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
+
+    if (!formData.acceptTerms) {
+      setError('You must accept the Terms and Privacy Policy.');
+      return;
+    }
+
+    try {
+      const data = {
+        name: formData.name,   // Django expects "username"
+        email: formData.email,
+        phone: formData.phone,
+        password: formData.password,
+      };
+      await registerUser(data);
+      console.log('Signup successful');
+      navigate('/login');  // Redirect to login after successful signup
+    } catch (err) {
+      console.error('Signup error:', err);
+      setError('Signup failed. Please try again.');
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,10 +53,11 @@ const Signup: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      {/* Your same layout */}
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        {/* Logo and Heading */}
         <div className="flex justify-center">
           <Link to="/" className="flex items-center">
-           
             <span className="ml-2 text-2xl font-bold text-gray-900">SportSpot</span>
           </Link>
         </div>
@@ -45,8 +70,16 @@ const Signup: React.FC = () => {
             Sign in
           </Link>
         </p>
+
+        {/* Error Message */}
+        {error && (
+          <div className="mt-4 text-center text-red-600 text-sm">
+            {error}
+          </div>
+        )}
       </div>
 
+      {/* Form */}
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
@@ -85,6 +118,24 @@ const Signup: React.FC = () => {
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 />
             
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                Phone Number
+              </label>
+              <div className="mt-1 relative">
+                <input
+                  id="phone"
+                  name="phone"
+                  type="text"
+                  autoComplete="tel"
+                  required
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                />
               </div>
             </div>
 
