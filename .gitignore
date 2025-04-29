@@ -13,8 +13,7 @@ db.sqlite3
 # Node modules
 frontend/node_modules/
 
-# Environment files
-.env
+
 
 # Editor folders
 .vscode/
@@ -24,5 +23,5 @@ frontend/node_modules/
 .DS_Store
 Thumbs.db
 
-# (Optional) ignore migrations if you want
+
 **/migrations/
