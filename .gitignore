@@ -11,7 +11,7 @@ db.sqlite3
 *.db
 
 # Node modules
-/frontend/node_modules/
+frontend/node_modules/
 
 # Environment files
 .env
@@ -25,4 +25,4 @@ db.sqlite3
 Thumbs.db
 
 # (Optional) ignore migrations if you want
- **/migrations/
+**/migrations/
