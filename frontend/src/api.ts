@@ -14,7 +14,7 @@ export const registerUser = async (data: { name: string, email: string, phone: s
 };
 
 // API call to log in a user
-export const loginUser = async (data: { username: string, password: string }) => {
+export const loginUser = async (data: { email: string, password: string }) => {
   try {
     const response = await axios.post(`${API_URL}users/login/`, data);
     return response.data;

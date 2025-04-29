@@ -1,21 +1,41 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { loginUser } from '..//api';
+
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     rememberMe: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle login logic here
-    console.log('Login submitted:', formData);
+  
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const { email, password } = formData;
+    // send username or email? depends on backend
+    const dataToSend = {
+      email: email,  // 👈 if backend expects username instead of email
+      password: password
+    };
+
+    const response = await loginUser(dataToSend);
+    console.log('Login successful:', response);
+    login();
+
+
     navigate('/');
-  };
+  } catch (error: any) {
+    console.error('Login error:', error.response?.data || error.message);
+    alert(error.response?.data?.detail || 'Login failed');
+  }
+};
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;

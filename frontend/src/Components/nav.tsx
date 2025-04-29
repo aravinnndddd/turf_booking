@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+
 
 const Nav: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const { isLoggedIn, logout } = useAuth();
 
 
   useEffect(() => {
@@ -19,6 +23,7 @@ const Nav: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   return (
     <nav 
@@ -76,19 +81,33 @@ const Nav: React.FC = () => {
 
           {/* Login/Signup Button (Desktop) */}
           <div className="hidden md:flex space-x-4">
-            <Link
-              to="/login"
-              className="text-white bg-transparent hover:bg-white/20 px-4 py-2 rounded-md transition-colors duration-200"
-            >
-              Sign In
-            </Link>
-            <Link
-              to="/signup"
-              className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-colors duration-200"
-            >
-              Sign Up
-            </Link>
-          </div>
+              {isLoggedIn ? (
+                <button
+                  onClick={() => {
+                    logout();
+                    navigate('/');
+                  }}
+                  className="text-white bg-red-500 hover:bg-red-600 px-4 py-2 rounded-md transition-colors duration-200"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    className="text-white bg-transparent hover:bg-white/20 px-4 py-2 rounded-md transition-colors duration-200"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-colors duration-200"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
         </div>
 
         {/* Mobile Navigation Menu */}
@@ -109,20 +128,14 @@ const Nav: React.FC = () => {
             <Link to="#footer" className="block py-2 px-4 text-gray-800 hover:bg-blue-50 hover:text-blue-600">
               Contact
             </Link>
-            <div className="mt-4 pt-4 border-t border-gray-200">
-              <Link
-                to="/login"
-                className="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded-md mb-2 transition-colors duration-200"
-              >
-                Sign In
-              </Link>
-              <Link
-                to="/signup"
-                className="block w-full text-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition-colors duration-200"
-              >
-                Sign Up
-              </Link>
-            </div>
+            {isLoggedIn ? (
+                <button onClick={logout} className="...">Logout</button>
+              ) : (
+                <>
+                  <Link to="/login" className="...">Sign In</Link>
+                  <Link to="/signup" className="...">Sign Up</Link>
+                </>
+              )}
           </div>
         )}
       </div>

@@ -1,4 +1,27 @@
-/frontend/node_modules
-/Backend/**/*.sqlite3
-/Backend/**/*.db
-.env
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django/Flask DB
+db.sqlite3
+*.sqlite3
+*.db
+
+# Node modules
+frontend/node_modules/
+
+
+
+# Editor folders
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+**/migrations/
